@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -19,38 +18,26 @@ body {
     text-align: center;
 }
 
-
 .hero {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
 }
 
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+
+.brand-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px; 
     object-fit: cover;
-    border: 3px solid #333;
     margin-bottom: 1rem;
-    filter: grayscale(100%); 
-    transition: filter 0.3s ease;
-}
-
-.profile-pic:hover {
-    filter: grayscale(0%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-}
-
-h2 {
-    font-size: 1.2rem;
-    color: #a0a0a0;
-    font-weight: 300;
-    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .tagline {
@@ -59,7 +46,7 @@ h2 {
 }
 
 
-.about, .contact {
+.about, .portfolio, .contact {
     background-color: #1e1e1e;
     border-radius: 15px;
     margin-bottom: 2rem;
@@ -68,9 +55,9 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: #fff;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #555;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -79,6 +66,54 @@ p {
     margin-bottom: 1rem;
     font-size: 1rem;
     color: #ccc;
+}
+
+
+.about-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #444;
+    filter: grayscale(100%); 
+    transition: filter 0.3s ease;
+}
+
+.profile-pic:hover {
+    filter: grayscale(0%);
+}
+
+
+.portfolio-grid {
+    display: grid;
+   
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
 }
 
 /* Botões */
@@ -137,7 +172,7 @@ footer {
     font-size: 0.9rem;
 }
 
-
+/* Animações */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -147,4 +182,16 @@ footer {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row; 
+        text-align: left;
+    }
+    
+    .about-text {
+        text-align: left;
+    }
 }

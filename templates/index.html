@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Rial | Publicidade & Propaganda</title>
+    <title>MTHS.PUBLI | Publicidade & Propaganda</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,23 +11,35 @@
 
     <header class="hero">
         <div class="container fade-in">
-            <img src="{{ url_for('static', filename='img/perfil.jpg') }}" alt="Foto do Matheus Rial" class="profile-pic">
-            <h1>Matheus Rial</h1>
-            <h2>Publicidade & Propaganda</h2>
+            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo MTHS.PUBLI" class="brand-logo">
+            <h1>MTHS.PUBLI</h1>
             <p class="tagline">Transformando ideias em comunicação que gera resultados.</p>
         </div>
     </header>
 
     <section class="about container fade-in">
         <h3>Sobre Mim</h3>
-        <p>
-            Olá! Tenho 20 anos e sou apaixonado por comunicação. Formado no SESI (2023), 
-            atualmente estou no 5º período de Publicidade e Propaganda no Unisalesiano de Araçatuba.
-        </p>
-        <p>
-            Estou dando os primeiros passos com a minha própria agência, focada em trazer 
-            soluções criativas e estratégicas para impulsionar marcas no mercado digital e offline.
-        </p>
+        <div class="about-content">
+            <img src="{{ url_for('static', filename='img/matheus.jpg') }}" alt="Matheus Rial" class="profile-pic">
+            <div class="about-text">
+                <p>
+                    Olá! Eu sou o <strong>Matheus Rial</strong>, o rosto por trás da MTHS.PUBLI. Tenho 20 anos e sou apaixonado por comunicação. Formado no SESI (2023), atualmente estou no 5º período de Publicidade e Propaganda no Unisalesiano de Araçatuba.
+                </p>
+                <p>
+                    Estou dando os primeiros passos com a minha própria agência, focada em trazer soluções criativas e estratégicas para impulsionar marcas no mercado digital e offline.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio container fade-in">
+        <h3>Portfólio</h3>
+        <p>Um pouco do nosso olhar e produções recentes.</p>
+        <div class="portfolio-grid">
+            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" alt="Trabalho Fotográfico 1" class="portfolio-img">
+            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" alt="Trabalho Fotográfico 2" class="portfolio-img">
+            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" alt="Trabalho Fotográfico 3" class="portfolio-img">
+        </div>
     </section>
 
     <section class="contact container fade-in">
@@ -49,7 +61,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Matheus Rial. Todos os direitos reservados.</p>
+        <p>&copy; 2026 MTHS.PUBLI. Todos os direitos reservados.</p>
     </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
