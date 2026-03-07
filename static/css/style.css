@@ -94,26 +94,36 @@ p {
     filter: grayscale(0%);
 }
 
-
+/* Estilo unificado para itens do portfólio */
 .portfolio-grid {
     display: grid;
-   
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     margin-top: 1.5rem;
 }
 
-.portfolio-img {
+.portfolio-item {
     width: 100%;
-    height: 300px; 
-    object-fit: cover; 
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 400px; /* Altura fixa para manter o padrão */
+    object-fit: cover; /* Faz a mídia preencher o espaço sem esticar */
+    border-radius: 12px;
+    background-color: #000;
+    transition: transform 0.3s ease;
 }
 
-.portfolio-img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+.portfolio-item:hover {
+    transform: scale(1.02);
+}
+
+/* Correção do filtro do mapa (estava com um caractere a mais 's' no 180deg) */
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+    filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%); 
 }
 
 /* Botões */

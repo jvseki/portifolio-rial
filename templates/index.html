@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+    
     <header class="hero">
         <div class="container fade-in">
             <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo MTHS.PUBLI" class="brand-logo">
@@ -32,13 +32,23 @@
         </div>
     </section>
 
-    <section class="portfolio container fade-in">
+   <section class="portfolio container fade-in">
         <h3>Portfólio</h3>
-        <p>Um pouco do nosso olhar e produções recentes.</p>
+        <p>Produções audiovisuais e fotográficas recentes.</p>
         <div class="portfolio-grid">
-            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" alt="Trabalho Fotográfico 1" class="portfolio-img">
-            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" alt="Trabalho Fotográfico 2" class="portfolio-img">
-            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" alt="Trabalho Fotográfico 3" class="portfolio-img">
+            <video class="portfolio-item" controls muted loop>
+                <source src="{{ url_for('static', filename='video/video1.mp4') }}" type="video/mp4">
+            </video>
+            <video class="portfolio-item" controls muted loop>
+                <source src="{{ url_for('static', filename='video/video2.mp4') }}" type="video/mp4">
+            </video>
+            <video class="portfolio-item" controls muted loop>
+                <source src="{{ url_for('static', filename='video/video3.mp4') }}" type="video/mp4">
+            </video>
+            
+            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" alt="Foto 1" class="portfolio-item">
+            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" alt="Foto 2" class="portfolio-item">
+            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" alt="Foto 3" class="portfolio-item">
         </div>
     </section>
  
