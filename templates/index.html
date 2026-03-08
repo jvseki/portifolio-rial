@@ -10,21 +10,20 @@
 <body>
     <header class="hero">
         <div class="container fade-in">
-            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo MTHS.PUBLI" class="brand-logo">
+            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
             <h1>MTHS.PUBLI</h1>
-            <p class="tagline">Transformando ideias em comunicação.</p>
+            <p>Transformando ideias em comunicação.</p>
         </div>
     </header>
 
     <section class="portfolio container fade-in">
         <div class="portfolio-grid">
             {% for item in items %}
-                {% if "youtube.com" in item.Link or "youtu.be" in item.Link %}
-                    <iframe src="{{ item.Link }}" class="portfolio-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-                {% elif "drive.google.com" in item.Link %}
-                    <iframe src="{{ item.Link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
+                {# O código agora busca 'link' em minúsculo independente da planilha #}
+                {% if "youtube.com" in item.link or "youtu.be" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
                 {% else %}
-                    <img src="{{ item.Link }}" alt="Trabalho" class="portfolio-item">
+                    <img src="{{ item.link }}" alt="Trabalho" class="portfolio-item">
                 {% endif %}
             {% endfor %}
         </div>
@@ -32,7 +31,7 @@
 
     <section class="contact container fade-in">
         <a href="https://wa.me/5518996893529" class="btn-whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+            <i class="fa-brands fa-whatsapp"></i> Orçamento
         </a>
     </section>
 
