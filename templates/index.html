@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="hero">
+    <header class="hero fade-in">
         <div class="container">
             <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
             <h1>MTHS.PUBLI</h1>
-            <p>Transformando ideias em comunicação que gera resultados.</p>
+            <p class="tagline">Transformando ideias em comunicação que gera resultados.</p>
         </div>
     </header>
 
-    <section class="about container">
+    <section class="about container fade-in">
         <h3>Sobre Mim</h3>
         <div class="about-content">
             <img src="{{ url_for('static', filename='img/matheus.jpg') }}" alt="Matheus Rial" class="profile-pic">
@@ -26,8 +26,9 @@
         </div>
     </section>
 
-    <section class="portfolio container">
+    <section class="portfolio container fade-in">
         <h3>Portfólio</h3>
+        
         <div class="portfolio-grid mobile-only">
             <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item">
             <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item">
@@ -39,24 +40,26 @@
                 {% if "youtube.com" in item.link or "youtu.be" in item.link %}
                     <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
                 {% else %}
-                    <img src="{{ item.link }}" class="portfolio-item">
+                    <img src="{{ item.link }}" class="portfolio-item" alt="Trabalho">
                 {% endif %}
             {% endfor %}
         </div>
     </section>
 
-    <section class="location container">
+    <section class="location container fade-in">
         <h3>Onde Estamos</h3>
         <p><i class="fa-solid fa-location-dot"></i> Rua Cristiano Olsen, 2374 - Araçatuba, SP</p>
     </section>
 
-    <section class="contact container">
+    <section class="contact container fade-in">
         <h3>Vamos trabalhar juntos?</h3>
-        <div class="button-group">
+        <p>Entre em contato para solicitar um orçamento ou tirar sua ideia do papel.</p>
+        
+        <div class="social-links">
             <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
             </a>
-            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn pink">
+            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn">
                 <i class="fa-brands fa-instagram"></i> Portfólio (@mths.publi)
             </a>
             <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">
