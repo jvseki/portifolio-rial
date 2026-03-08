@@ -7,49 +7,46 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Regras de visibilidade */
+        body { background-color: #1a1a1a; color: white; margin: 0; font-family: sans-serif; }
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
         .mobile-only { display: none; }
         .desktop-only { display: block; }
-
         @media (max-width: 768px) {
             .mobile-only { display: block; }
             .desktop-only { display: none; }
         }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .portfolio-item { width: 100%; border-radius: 10px; }
+        .brand-logo { width: 100px; border-radius: 50%; }
+        .button-group { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
+        .btn-whatsapp, .social-btn { width: 100%; max-width: 400px; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; text-align: center; }
+        .btn-whatsapp { background-color: #25d366; color: white; }
+        .social-btn.pink { background-color: #e1306c; color: white; }
+        .social-btn.outline { border: 2px solid #e1306c; color: #e1306c; }
     </style>
 </head>
 <body>
-    
-    <header class="hero">
-        <div class="container fade-in">
-            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
-            <h1>MTHS.PUBLI</h1>
-            <p class="tagline">Transformando ideias em comunicação que gera resultados.</p>
-        </div>
+    <header class="container" style="text-align: center;">
+        <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
+        <h1>MTHS.PUBLI</h1>
     </header>
 
-    <section class="about container fade-in">
+    <section class="container">
         <h3>Sobre Mim</h3>
-        <div class="about-content">
-            <img src="{{ url_for('static', filename='img/matheus.jpg') }}" alt="Matheus Rial" class="profile-pic">
-            <div class="about-text">
-                <p>Olá! Eu sou o <strong>Matheus Rial</strong>, o rosto por trás da MTHS.PUBLI. Tenho 20 anos e sou apaixonado por comunicação. Atualmente estou no 5º período de Publicidade e Propaganda no Unisalesiano de Araçatuba.</p>
-            </div>
-        </div>
+        <p><strong>Matheus Rial</strong>, 20 anos. Publicidade e Propaganda no Unisalesiano de Araçatuba.</p>
     </section>
 
-    <section class="portfolio container fade-in">
+    <section class="container">
         <h3>Portfólio</h3>
-        
         <div class="portfolio-grid mobile-only">
             <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item">
             <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item">
             <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" class="portfolio-item">
         </div>
-
         <div class="portfolio-grid desktop-only">
             {% for item in items %}
                 {% if "youtube.com" in item.link or "youtu.be" in item.link %}
-                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="{{ item.link }}" class="portfolio-item" height="315" frameborder="0" allowfullscreen></iframe>
                 {% else %}
                     <img src="{{ item.link }}" class="portfolio-item">
                 {% endif %}
@@ -57,21 +54,12 @@
         </div>
     </section>
 
-    <section class="contact container fade-in">
-        <h3>Vamos trabalhar juntos?</h3>
+    <section class="container">
         <div class="button-group">
-            <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-            </a>
-            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn pink">
-                <i class="fa-brands fa-instagram"></i> Portfólio (@mths.publi)
-            </a>
-            <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">
-                <i class="fa-brands fa-instagram"></i> Pessoal (@matheus.rial05)
-            </a>
+            <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">Solicitar Orçamento</a>
+            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn pink">Portfólio (@mths.publi)</a>
+            <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">Pessoal (@matheus.rial05)</a>
         </div>
     </section>
-
-    <footer><p>© 2026 MTHS.PUBLI. Todos os direitos reservados.</p></footer>
 </body>
 </html>
