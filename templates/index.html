@@ -34,51 +34,41 @@
 
     <section class="portfolio container fade-in">
         <h3>Portfólio</h3>
-        <p>Projetos recentes e produções audiovisuais.</p>
-        
         <div class="portfolio-grid">
             {% for item in items %}
-                {% if "drive.google.com" in item.link %}
-                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                {% elif "youtube.com" in item.link or "youtu.be" in item.link %}
+                {% if "youtube.com" in item.link or "youtu.be" in item.link %}
                     <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                {% elif "drive.google.com" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 {% else %}
                     <img src="{{ item.link }}" alt="Trabalho Matheus Rial" class="portfolio-item">
                 {% endif %}
             {% endfor %}
         </div>
     </section>
- 
+
     <section class="location container fade-in">
         <h3>Onde Estamos</h3>
         <p><i class="fa-solid fa-location-dot"></i> Rua Cristiano Olsen, 2374 - Araçatuba, SP</p>
         <div class="map-responsive">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.432655189498!2d-50.4411139!3d-21.1351543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949642398687a27d%3A0xc3f6e5200350d7e6!2sR.%20Cristiano%20Olsen%2C%202374%20-%20Jardim%20Sumare%2C%20Ara%C3%A7atuba%20-%20SP%2C%2016015-244!5e0!3m2!1spt-BR!2sbr!4v1709941200000!5m2!1spt-BR!2sbr" 
-                width="600" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                src="http://googleusercontent.com/maps.google.com/5" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
     </section>
 
     <section class="contact container fade-in">
         <h3>Vamos trabalhar juntos?</h3>
-        <p>Entre em contato para solicitar um orçamento ou tirar sua ideia do papel.</p>
-        
         <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." class="btn-whatsapp" target="_blank">
             <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
         </a>
-
         <div class="social-links">
             <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn">
-                <i class="fa-brands fa-instagram"></i> Portfólio (@mths.publi)
+                <i class="fa-brands fa-instagram"></i> Portfólio
             </a>
             <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">
-                <i class="fa-brands fa-instagram"></i> Pessoal (@matheus.rial05)
+                <i class="fa-brands fa-instagram"></i> Pessoal
             </a>
         </div>
     </section>

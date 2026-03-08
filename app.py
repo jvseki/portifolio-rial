@@ -1,24 +1,35 @@
 from flask import Flask, render_template
-import requests
-import csv
+import pandas as pd
 
 app = Flask(__name__)
 
-PLANILHA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnmrABSCvqCnsCYm2yVdtS1X_svuG60KAfcgruTzN4tryfYJZYEidxo74ODZLppPwJ9ypoppoOMhdp/pub?gid=0&single=true&output=csv"
+
+URL_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnmrABSCvqCnsCYm2yVdtS1X_svuG60KAfcgruTzN4tryfYJZYEidxo74ODZLppPwJ9ypoppoOMhdp/pub?gid=0&single=true&output=csv"
 
 @app.route('/')
 def index():
-    portfolio_items = []
     try:
-        response = requests.get(PLANILHA_URL)
-        response.encoding = 'utf-8'
-        csv_data = csv.reader(response.text.splitlines())
-        next(csv_data)
-        for row in csv_data:
-            if len(row) >= 2:
-                portfolio_items.append({'tipo': row[0].strip().lower(), 'link': row[1].strip()})
-    except:
-        pass
-    return render_template('index.html', items=portfolio_items)
+        
+        df = pd.read_csv(URL_CSV)
+       
+        items = df.to_dict(orient='records')
+    except Exception as e:
+        print(f"Erro ao ler a planilha: {e}")
+        items = []
+        
+    return render_template('index.html', items=items)
 
 
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+
+
+app = app
+
+if __name__ == '__main__':
+   
+    app.run(debug=True)
