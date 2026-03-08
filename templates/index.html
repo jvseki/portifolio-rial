@@ -12,7 +12,7 @@
         <div class="container">
             <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
             <h1>MTHS.PUBLI</h1>
-            <p class="tagline">Transformando ideias em comunicação que gera resultados.</p>
+            <p class="tagline">Comunicação estratégica para resultados reais.</p>
         </div>
     </header>
 
@@ -21,28 +21,23 @@
         <div class="about-content">
             <img src="{{ url_for('static', filename='img/matheus.jpg') }}" alt="Matheus Rial" class="profile-pic">
             <div class="about-text">
-                <p>Olá! Eu sou o <strong>Matheus Rial</strong>, o rosto por trás da MTHS.PUBLI. Tenho 20 anos e sou apaixonado por comunicação. Atualmente estou no 5º período de Publicidade e Propaganda no Unisalesiano de Araçatuba.</p>
+                <p>Olá! Eu sou o <strong>Matheus Rial</strong>, estudante de Publicidade e Propaganda no Unisalesiano. Foco em criar conexões entre marcas e pessoas através do design e estratégia.</p>
             </div>
         </div>
     </section>
 
     <section class="portfolio container fade-in">
-        <h3>Portfólio</h3>
-        
-        <div class="portfolio-grid mobile-only">
-            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item">
-            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item">
-            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" class="portfolio-item">
-        </div>
+        <h3>Meu Trabalho</h3>
+        <div class="portfolio-grid">
+            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item internal">
+            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item internal">
+            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" class="portfolio-item internal">
 
-        <div class="portfolio-grid desktop-only">
             {% for item in items %}
-                {% if item.link %}
-                    {% if "youtube.com" in item.link or "youtu.be" in item.link %}
-                        <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
-                    {% else %}
-                        <img src="{{ item.link }}" class="portfolio-item" alt="Trabalho">
-                    {% endif %}
+                {% if "youtube.com" in item.link or "youtu.be" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
+                {% else %}
+                    <img src="{{ item.link }}" class="portfolio-item" alt="Portfólio">
                 {% endif %}
             {% endfor %}
         </div>
@@ -54,7 +49,7 @@
             <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
             </a>
-            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn">
+            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn pink">
                 <i class="fa-brands fa-instagram"></i> Portfólio (@mths.publi)
             </a>
             <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">

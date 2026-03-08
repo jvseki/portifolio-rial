@@ -11,16 +11,18 @@ URL_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnmrABSCvqCnsCYm2yVd
 def index():
     items = []
     try:
-        response = requests.get(URL_CSV, timeout=10)
+        response = requests.get(URL_CSV, timeout=15)
         response.encoding = 'utf-8'
         if response.status_code == 200:
             f = io.StringIO(response.text)
             reader = csv.DictReader(f)
             for row in reader:
-                # Normaliza as chaves para minúsculo
-                items.append({k.strip().lower(): v for k, v in row.items()})
+                # Normaliza o nome da coluna para evitar erro de maiúscula/minúscula
+                normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                if normalized_row.get('link'):
+                    items.append(normalized_row)
     except Exception as e:
-        print(f"Erro ao carregar planilha: {e}")
+        print(f"Erro na planilha: {e}")
         
     return render_template('index.html', items=items)
 
