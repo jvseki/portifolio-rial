@@ -31,18 +31,21 @@
             </div>
         </div>
     </section>
-
-   <section class="portfolio container fade-in">
+<section class="portfolio container fade-in">
         <h3>Portfólio</h3>
         <p>Produções audiovisuais e fotográficas recentes.</p>
         <div class="portfolio-grid">
-            <video class="portfolio-item" controls muted loop>
+            
+            <video class="portfolio-item" controls muted loop playsinline preload="metadata">
                 <source src="{{ url_for('static', filename='video/video1.mp4') }}" type="video/mp4">
+                Seu navegador não suporta vídeos.
             </video>
-            <video class="portfolio-item" controls muted loop>
+
+            <video class="portfolio-item" controls muted loop playsinline preload="metadata">
                 <source src="{{ url_for('static', filename='video/video2.mp4') }}" type="video/mp4">
             </video>
-            <video class="portfolio-item" controls muted loop>
+
+            <video class="portfolio-item" controls muted loop playsinline preload="metadata">
                 <source src="{{ url_for('static', filename='video/video3.mp4') }}" type="video/mp4">
             </video>
             
