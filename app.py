@@ -17,9 +17,10 @@ def index():
             f = io.StringIO(response.text)
             reader = csv.DictReader(f)
             for row in reader:
+                # Normaliza as chaves para minúsculo
                 items.append({k.strip().lower(): v for k, v in row.items()})
     except Exception as e:
-        print(e)
+        print(f"Erro ao carregar planilha: {e}")
         
     return render_template('index.html', items=items)
 

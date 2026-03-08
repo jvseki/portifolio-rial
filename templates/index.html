@@ -37,24 +37,19 @@
 
         <div class="portfolio-grid desktop-only">
             {% for item in items %}
-                {% if "youtube.com" in item.link or "youtu.be" in item.link %}
-                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
-                {% else %}
-                    <img src="{{ item.link }}" class="portfolio-item" alt="Trabalho">
+                {% if item.link %}
+                    {% if "youtube.com" in item.link or "youtu.be" in item.link %}
+                        <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
+                    {% else %}
+                        <img src="{{ item.link }}" class="portfolio-item" alt="Trabalho">
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>
     </section>
 
-    <section class="location container fade-in">
-        <h3>Onde Estamos</h3>
-        <p><i class="fa-solid fa-location-dot"></i> Rua Cristiano Olsen, 2374 - Araçatuba, SP</p>
-    </section>
-
     <section class="contact container fade-in">
         <h3>Vamos trabalhar juntos?</h3>
-        <p>Entre em contato para solicitar um orçamento ou tirar sua ideia do papel.</p>
-        
         <div class="social-links">
             <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento

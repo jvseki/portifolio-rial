@@ -1,191 +1,26 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background-color: #121212; color: #f0f0f0; }
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; text-align: center; }
+.brand-logo { width: 120px; border-radius: 15px; margin-bottom: 1rem; }
+.about, .portfolio, .contact { background-color: #1e1e1e; border-radius: 15px; margin-bottom: 2rem; padding: 2rem; }
+h3 { border-bottom: 2px solid #E1306C; display: inline-block; padding-bottom: 5px; margin-bottom: 1.5rem; }
+.profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.portfolio-item { width: 100%; height: 480px; object-fit: cover; border-radius: 12px; }
+.btn-whatsapp { display: block; background-color: #25D366; color: #fff; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-bottom: 10px; }
+.social-links { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.social-btn { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 400px; background-color: #E1306C; color: #fff; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+.social-btn.outline { background-color: transparent; border: 2px solid #E1306C; color: #E1306C; }
 
-body {
-    background-color: #121212;
-    color: #f0f0f0;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-.hero {
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-}
-
-.brand-logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 15px; 
-    object-fit: cover;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.tagline {
-    font-style: italic;
-    color: #888;
-}
-
-.about, .portfolio, .contact, .location {
-    background-color: #1e1e1e;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #fff;
-    border-bottom: 2px solid #E1306C;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: #ccc;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.profile-pic {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #444;
-    filter: grayscale(100%); 
-    transition: filter 0.3s ease;
-}
-
-.profile-pic:hover {
-    filter: grayscale(0%);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 1.5rem;
-}
-
-.portfolio-item {
-    width: 100%;
-    height: 480px;
-    object-fit: cover; 
-    border-radius: 12px;
-    background-color: #000;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
-}
-
-.btn-whatsapp {
-    display: inline-block;
-    background-color: #25D366;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.social-links {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    background-color: #E1306C;
-    color: #fff;
-    padding: 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: opacity 0.3s;
-}
-
-.social-btn.outline {
-    background-color: transparent;
-    border: 2px solid #E1306C;
-    color: #E1306C;
-}
-
-/* CLASSES DE VISIBILIDADE E ANIMAÇÃO */
+/* RECONHECIMENTO PC vs MOBILE */
 .mobile-only { display: none; }
 .desktop-only { display: block; }
 
 @media (max-width: 768px) {
     .mobile-only { display: block; }
     .desktop-only { display: none; }
-    .about-content { flex-direction: column; }
+    .portfolio-grid { grid-template-columns: 1fr; }
 }
 
-@media (min-width: 768px) {
-    .about-content { flex-direction: row; text-align: left; }
-}
-
-.fade-in {
-    opacity: 1; /* Mudamos para 1 para evitar tela cinza se o JS falhar */
-    transform: translateY(0);
-}
-
-/* Se o JS funcionar, ele aplica a animação real */
-.js-enabled .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.js-enabled .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-footer {
-    text-align: center;
-    padding: 3rem 2rem;
-    color: #555;
-    font-size: 0.9rem;
-}
+.fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
