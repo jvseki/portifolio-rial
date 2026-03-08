@@ -1,5 +1,5 @@
 <section class="portfolio container fade-in">
-    <h3>Portfólio Dinâmico</h3>
+    <h3>Portfólio</h3>
     <div class="portfolio-grid">
         {% if items %}
             {% for item in items %}
@@ -7,12 +7,12 @@
                     {% if "youtube.com" in item.link or "youtu.be" in item.link %}
                         <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen loading="lazy"></iframe>
                     {% else %}
-                        <img src="{{ item.link }}" class="portfolio-item" alt="Portfólio" loading="lazy" onerror="this.style.display='none'">
+                        <img src="{{ item.link }}" class="portfolio-item" alt="Trabalho" loading="lazy" onerror="this.parentElement.style.display='none'">
                     {% endif %}
                 </div>
             {% endfor %}
         {% else %}
-            <p style="color: #888;">Nenhum item encontrado na planilha no momento.</p>
+            <p style="color: #888;">Nenhum trabalho encontrado na planilha.</p>
         {% endif %}
     </div>
 </section>
