@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Adiciona classe ao body para ativar as animações do CSS com segurança
+    document.body.classList.add('js-enabled');
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

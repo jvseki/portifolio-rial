@@ -105,36 +105,9 @@ p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-iframe.portfolio-item {
-    border: none;
-}
-
 .portfolio-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
-}
-
-.location p i {
-    color: #E1306C; 
-    margin-right: 8px;
-}
-
-.map-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%; 
-    position: relative;
-    height: 0;
-    border-radius: 10px;
-}
-
-.map-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    border-radius: 10px;
-    filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%); 
 }
 
 .btn-whatsapp {
@@ -150,15 +123,11 @@ iframe.portfolio-item {
     transition: background-color 0.3s;
 }
 
-.btn-whatsapp:hover {
-    background-color: #1ebe57;
-}
-
 .social-links {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -167,11 +136,11 @@ iframe.portfolio-item {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     background-color: #E1306C;
     color: #fff;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     transition: opacity 0.3s;
@@ -183,30 +152,35 @@ iframe.portfolio-item {
     color: #E1306C;
 }
 
-.social-btn:hover {
-    opacity: 0.8;
+/* CLASSES DE VISIBILIDADE E ANIMAÇÃO */
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+@media (max-width: 768px) {
+    .mobile-only { display: block; }
+    .desktop-only { display: none; }
+    .about-content { flex-direction: column; }
+}
+
+@media (min-width: 768px) {
+    .about-content { flex-direction: row; text-align: left; }
 }
 
 .fade-in {
+    opacity: 1; /* Mudamos para 1 para evitar tela cinza se o JS falhar */
+    transform: translateY(0);
+}
+
+/* Se o JS funcionar, ele aplica a animação real */
+.js-enabled .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in.visible {
+.js-enabled .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: row; 
-        text-align: left;
-    }
-    
-    .about-text {
-        text-align: left;
-    }
 }
 
 footer {
