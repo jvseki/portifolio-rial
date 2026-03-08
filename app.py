@@ -17,12 +17,12 @@ def index():
             f = io.StringIO(response.text)
             reader = csv.DictReader(f)
             for row in reader:
-                # Normaliza chaves e remove espaços
+                # Limpa espaços e padroniza para minúsculo
                 normalized_row = {k.strip().lower(): v.strip() for k, v in row.items() if k}
                 if normalized_row.get('link') and normalized_row['link'].startswith('http'):
                     items.append(normalized_row)
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Erro na Planilha: {e}")
         
     return render_template('index.html', items=items)
 
