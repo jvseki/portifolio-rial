@@ -17,16 +17,14 @@ def index():
             f = io.StringIO(response.text)
             reader = csv.DictReader(f)
             for row in reader:
-                # Forçamos as chaves para minúsculo para bater com o HTML
                 items.append({k.strip().lower(): v for k, v in row.items()})
     except Exception as e:
-        print(f"Erro: {e}")
+        print(e)
         
     return render_template('index.html', items=items)
 
 @app.after_request
 def add_header(response):
-    # Isso força o celular a sempre buscar a versão nova do site
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     return response
 

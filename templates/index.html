@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTHS.PUBLI | Publicidade & Propaganda</title>
+    <title>MTHS.PUBLI | Portfólio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Regras de visibilidade */
+        .mobile-only { display: none; }
+        .desktop-only { display: block; }
+
+        @media (max-width: 768px) {
+            .mobile-only { display: block; }
+            .desktop-only { display: none; }
+        }
+    </style>
 </head>
 <body>
     
     <header class="hero">
         <div class="container fade-in">
-            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo MTHS.PUBLI" class="brand-logo">
+            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="brand-logo">
             <h1>MTHS.PUBLI</h1>
             <p class="tagline">Transformando ideias em comunicação que gera resultados.</p>
         </div>
@@ -23,48 +33,45 @@
             <img src="{{ url_for('static', filename='img/matheus.jpg') }}" alt="Matheus Rial" class="profile-pic">
             <div class="about-text">
                 <p>Olá! Eu sou o <strong>Matheus Rial</strong>, o rosto por trás da MTHS.PUBLI. Tenho 20 anos e sou apaixonado por comunicação. Atualmente estou no 5º período de Publicidade e Propaganda no Unisalesiano de Araçatuba.</p>
-                <p>Foco em trazer soluções criativas e estratégicas para impulsionar marcas no mercado digital e offline.</p>
             </div>
         </div>
     </section>
 
     <section class="portfolio container fade-in">
         <h3>Portfólio</h3>
-        <div class="portfolio-grid">
+        
+        <div class="portfolio-grid mobile-only">
+            <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item">
+            <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item">
+            <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" class="portfolio-item">
+        </div>
+
+        <div class="portfolio-grid desktop-only">
             {% for item in items %}
                 {% if "youtube.com" in item.link or "youtu.be" in item.link %}
-                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen></iframe>
                 {% else %}
-                    <img src="{{ item.link }}" alt="Trabalho Matheus Rial" class="portfolio-item">
+                    <img src="{{ item.link }}" class="portfolio-item">
                 {% endif %}
             {% endfor %}
         </div>
     </section>
 
-    <section class="location container fade-in">
-        <h3>Onde Estamos</h3>
-        <p><i class="fa-solid fa-location-dot"></i> Rua Cristiano Olsen, 2374 - Araçatuba, SP</p>
-        <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.631214436852!2d-50.443187!3d-21.201662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949643ed240801a9%3A0x6d8f5b82c16159c3!2sR.%20Cristiano%20Olsen%2C%202374%20-%20Jardim%20Sumare%2C%20Ara%C3%A7atuba%20-%20SP%2C%2016015-244!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
-
     <section class="contact container fade-in">
         <h3>Vamos trabalhar juntos?</h3>
-        <a href="https://wa.me/5518996893529" class="btn-whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-        </a>
-        <div class="social-links">
-            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn">
-                <i class="fa-brands fa-instagram"></i> Portfólio
+        <div class="button-group">
+            <a href="https://wa.me/5518996893529?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-whatsapp" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+            </a>
+            <a href="https://instagram.com/mths.publi" target="_blank" class="social-btn pink">
+                <i class="fa-brands fa-instagram"></i> Portfólio (@mths.publi)
             </a>
             <a href="https://instagram.com/matheus.rial05" target="_blank" class="social-btn outline">
-                <i class="fa-brands fa-instagram"></i> Pessoal
+                <i class="fa-brands fa-instagram"></i> Pessoal (@matheus.rial05)
             </a>
         </div>
     </section>
 
     <footer><p>© 2026 MTHS.PUBLI. Todos os direitos reservados.</p></footer>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
