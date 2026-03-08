@@ -1,4 +1,23 @@
-📸 Portfólio Audiovisual - Matheus RialEste é um site de portfólio dinâmico desenvolvido para o profissional de publicidade Matheus Rial. O projeto utiliza Python com o microframework Flask para gerenciar os dados de forma eficiente através de uma integração direta com o Google Sheets.🚀 FuncionalidadesGestão via Planilha: Todo o conteúdo (fotos e vídeos) é controlado remotamente via Google Sheets, sem necessidade de mexer no código para atualizar o portfólio.Suporte Multimídia: Sistema híbrido que suporta imagens (ImgBB), vídeos do YouTube (incluindo Shorts) e vídeos hospedados no Google Drive.Design Responsivo: Interface otimizada para dispositivos móveis e desktop, com foco em uma experiência de usuário "simples, mas chamativa".Animações Smooth: Efeitos de fade-in e hover para uma navegação mais moderna e fluida.🛠️ Tecnologias UtilizadasBackend: Python 3 + Flask.Frontend: HTML5, CSS3 (Flexbox/Grid).Integração de Dados: Google Sheets API (via link CSV público).Hospedagem de Mídia: YouTube, Google Drive e ImgBB.📋 Configuração da PlanilhaPara que o site funcione corretamente, a planilha deve seguir este padrão:TipoLinkfotoLink direto da imagem (ex: .jpg, .png).videoLink de incorporação do YouTube ou Preview do Drive.Formatos de Link Suportados:YouTube: https://www.youtube.com/embed/ID_DO_VIDEOGoogle Drive: https://drive.google.com/file/d/ID_DO_VIDEO/previewImgBB: https://i.ibb.co/ID_DA_IMAGEM/foto.jpg🔧 Instalação e ExecuçãoClone o repositório:Bashgit clone https://github.com/seu-usuario/mths-publi.git
-Instale as dependências:Bashpip install flask requests pandas
-Execute a aplicação:Bashpython app.py
-Acesse no navegador: http://127.0.0.1:5000👤 DesenvolvedorJoão Victor - Estudante de Sistemas Análise e Desenvolvimento de Sistemas.Especialista em automação com Python e desenvolvimento web com Flask.
+# 📸 MTHS.PUBLI - Portfólio Audiovisual
+Este projeto é um site de portfólio dinâmico desenvolvido para o profissional de publicidade Matheus Rial. A aplicação utiliza Python com o microframework Flask para renderizar uma interface moderna que consome dados em tempo real diretamente de uma planilha do Google Sheets.
+---
+# 🚀 Funcionalidades
+Gerenciamento Dinâmico: O conteúdo do site (fotos e vídeos) é atualizado instantaneamente através de uma planilha remota, sem necessidade de deploy ou alteração no código fonte.
+
+Suporte Híbrido de Mídia: Sistema preparado para exibir imagens do ImgBB e vídeos integrados via YouTube (incluindo Shorts) e Google Drive.
+
+Interface Responsiva: Layout "simples mas chamativo", totalmente otimizado para navegação em dispositivos móveis e desktop.
+
+Efeitos Visuais: Implementação de animações fade-in ao rolar a página e filtros interativos nas imagens de perfil e portfólio.
+---
+# 🛠️ Tecnologias Utilizadas
+Backend: Python 3 + Flask (Microframework).
+
+Frontend: HTML5, CSS3 (CSS Grid e Flexbox).
+
+Dados: Integração com Google Sheets via Pandas/CSV.
+
+Hospedagem de Arquivos: Google Drive, YouTube e ImgBB.
+---
+# 📋 Estrutura da Planilha
+(Google Sheets)Para que o sistema processe os dados corretamente, a planilha deve ser configurada com as seguintes colunas:Tipo (A)Link (B)Descriçãofotohttps://i.ibb.co/...Link direto da imagem (final .jpg ou .png).videohttps://www.youtube.com/embed/...Link de incorporação para vídeos/shorts do YouTube.videohttps://drive.google.com/file/d/.../previewLink de visualização (preview) para vídeos do Drive.
