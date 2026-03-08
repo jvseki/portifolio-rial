@@ -1,0 +1,18 @@
+<section class="portfolio container fade-in">
+    <h3>Meu Portfólio</h3>
+    <div class="portfolio-grid">
+        <img src="{{ url_for('static', filename='img/modelo1.jpg') }}" class="portfolio-item internal">
+        <img src="{{ url_for('static', filename='img/modelo2.jpg') }}" class="portfolio-item internal">
+        <img src="{{ url_for('static', filename='img/modelo3.jpg') }}" class="portfolio-item internal">
+
+        {% for item in items %}
+            <div class="portfolio-wrapper">
+                {% if "youtube.com" in item.link or "youtu.be" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                {% else %}
+                    <img src="{{ item.link }}" class="portfolio-item" loading="lazy" onerror="this.style.display='none'">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>

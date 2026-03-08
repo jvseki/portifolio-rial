@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry.target.classList.add('visible');
             }
         });
-    });
+    }, { threshold: 0.1 });
+
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 });
