@@ -31,36 +31,30 @@
             </div>
         </div>
     </section>
-<section class="portfolio container fade-in">
-    <h3>Portfólio</h3>
-    <p>Projetos recentes e produções audiovisuais.</p>
-    
-    <div class="portfolio-grid">
-        {% for item in items %}
-            
-            {# 1. TESTA SE O LINK É DO GOOGLE DRIVE #}
-            {% if "drive.google.com" in item.link %}
-                <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-            {# 2. TESTA SE O LINK É DO YOUTUBE #}
-            {% elif "youtube.com" in item.link or "youtu.be" in item.link %}
-                <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-            {# 3. SE NÃO FOR VÍDEO, CARREGA COMO FOTO #}
-            {% else %}
-                <img src="{{ item.link }}" alt="Trabalho Matheus Rial" class="portfolio-item">
-            {% endif %}
-
-        {% endfor %}
-    </div>
-</section>
+    <section class="portfolio container fade-in">
+        <h3>Portfólio</h3>
+        <p>Projetos recentes e produções audiovisuais.</p>
+        
+        <div class="portfolio-grid">
+            {% for item in items %}
+                {% if "drive.google.com" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                {% elif "youtube.com" in item.link or "youtu.be" in item.link %}
+                    <iframe src="{{ item.link }}" class="portfolio-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                {% else %}
+                    <img src="{{ item.link }}" alt="Trabalho Matheus Rial" class="portfolio-item">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
  
     <section class="location container fade-in">
         <h3>Onde Estamos</h3>
         <p><i class="fa-solid fa-location-dot"></i> Rua Cristiano Olsen, 2374 - Araçatuba, SP</p>
         <div class="map-responsive">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.475488152521!2d-50.4354433!3d-21.2129993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949643ed2d85903b%3A0xc665191983050098!2sR.%20Cristiano%20Olsen%2C%202374%20-%20Jardim%20Sumare%2C%20Ara%C3%A7atuba%20-%20SP%2C%2016015-244!5e0!3m2!1spt-BR!2sbr!4v1709840000000!5m2!1spt-BR!2sbr" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.432655189498!2d-50.4411139!3d-21.1351543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949642398687a27d%3A0xc3f6e5200350d7e6!2sR.%20Cristiano%20Olsen%2C%202374%20-%20Jardim%20Sumare%2C%20Ara%C3%A7atuba%20-%20SP%2C%2016015-244!5e0!3m2!1spt-BR!2sbr!4v1709941200000!5m2!1spt-BR!2sbr" 
                 width="600" 
                 height="450" 
                 style="border:0;" 
@@ -90,7 +84,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 MTHS.PUBLI. Todos os direitos reservados.</p>
+        <p>© 2026 MTHS.PUBLI. Todos os direitos reservados.</p>
     </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
